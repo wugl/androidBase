@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.steelkiwi.cropiwa.util.Permissions;
@@ -53,11 +54,9 @@ public class CropActivityDemo extends AppCompatActivity {
     private File tempFile;
 
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
 
         setContentView(R.layout.activity_crop_demo);
@@ -74,7 +73,7 @@ public class CropActivityDemo extends AppCompatActivity {
 
 
                 // 设置好参数之后再show
-                popupWindow.showAtLocation(v, Gravity.BOTTOM,0,0);
+                popupWindow.showAtLocation(v, Gravity.BOTTOM, 0, 0);
 
             }
         });
@@ -82,7 +81,7 @@ public class CropActivityDemo extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (uri != null){
+                if (uri != null) {
                     ArrayList<String> imageList = new ArrayList<String>();
                     imageList.add(uri.getPath());
 
@@ -115,7 +114,7 @@ public class CropActivityDemo extends AppCompatActivity {
                                 }
                             })
 
-                    .start(CropActivityDemo.this);
+                            .start(CropActivityDemo.this);
 
                 }
 
@@ -123,12 +122,20 @@ public class CropActivityDemo extends AppCompatActivity {
         });
     }
 
-    private void initPopWindow(){
+    private void initPopWindow() {
         View contentView = View.inflate(CropActivityDemo.this,
                 R.layout.choose_for_crop, null);
 
         TextView camera = (TextView) contentView.findViewById(R.id.btn_camera_image);
-        TextView gallary = (TextView) contentView.findViewById(R.id.btn_from_gallery);
+        TextView gallery = (TextView) contentView.findViewById(R.id.btn_from_gallery);
+       // TextView cancel = (TextView) contentView.findViewById(R.id.btn_cancel);
+        contentView.findViewById(R.id.container).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+               // Toast.makeText(CropActivityDemo.this, v.getId()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +149,7 @@ public class CropActivityDemo extends AppCompatActivity {
             }
         });
 
-        gallary.setOnClickListener(new View.OnClickListener() {
+        gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -152,9 +159,7 @@ public class CropActivityDemo extends AppCompatActivity {
         });
 
 
-
-
-        popupWindow = new PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT,true);
+        popupWindow = new PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
 
         popupWindow.setFocusable(true);
 
@@ -181,14 +186,14 @@ public class CropActivityDemo extends AppCompatActivity {
         // 我觉得这里是API的一个bug
 
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CHOOSE_PHOTO && resultCode == RESULT_OK) {
             startCropActivity(data.getData());
-        }
-        else if (requestCode == REQUEST_CAMERA_PHOTO && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_CAMERA_PHOTO && resultCode == RESULT_OK) {
             startCropActivity(Uri.fromFile(tempFile));
-        }else if (requestCode == REQUEST_CROP_PHOTO && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_CROP_PHOTO && resultCode == RESULT_OK) {
             if (data.getExtras() != null) {
                 uri = data.getParcelableExtra("data");
                 imageView.setImageURI(uri);

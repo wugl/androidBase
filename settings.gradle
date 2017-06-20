@@ -1,1 +1,1 @@
-include ':app', ':baselibrary', ':selectdate', ':zxing-android-embedded', ':cropiwa', ':photopreview'
+include ':app', ':baselibrary', ':selectdate', ':zxing-android-embedded', ':cropiwa', ':photopreview', ':views', ':listPopWin'

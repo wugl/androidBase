@@ -6,8 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/cropiwa/cropiwa.iml" filepath="$PROJECT_DIR$/cropiwa/cropiwa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listPopWin/listPopWin.iml" filepath="$PROJECT_DIR$/listPopWin/listPopWin.iml" />
       <module fileurl="file://$PROJECT_DIR$/photopreview/photopreview.iml" filepath="$PROJECT_DIR$/photopreview/photopreview.iml" />
       <module fileurl="file://$PROJECT_DIR$/selectdate/selectdate.iml" filepath="$PROJECT_DIR$/selectdate/selectdate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/views/views.iml" filepath="$PROJECT_DIR$/views/views.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing-android-embedded/zxing-android-embedded.iml" filepath="$PROJECT_DIR$/zxing-android-embedded/zxing-android-embedded.iml" />
     </modules>
   </component>

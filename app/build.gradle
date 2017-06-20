@@ -26,12 +26,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    //compile 'com.android.support:appcompat-v7:25.3.1'
+
+
+
     testCompile 'junit:junit:4.12'
     compile project(path: ':baselibrary')
     compile project(path: ':selectdate')
 
+    //compile 'org.byteam.superadaper:superadapter:3.6.7' //github.com/byteam/superadapter
+
     compile project(path: ':zxing-android-embedded')
     compile project(path: ':cropiwa')
+    compile project(path: ':views')
+    compile project(path: ':listPopWin')
 }

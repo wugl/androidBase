@@ -11,8 +11,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/cropiwa" />
+            <option value="$PROJECT_DIR$/listPopWin" />
             <option value="$PROJECT_DIR$/photopreview" />
             <option value="$PROJECT_DIR$/selectdate" />
+            <option value="$PROJECT_DIR$/views" />
             <option value="$PROJECT_DIR$/zxing-android-embedded" />
           </set>
         </option>

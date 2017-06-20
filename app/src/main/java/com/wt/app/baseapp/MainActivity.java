@@ -6,23 +6,63 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.hankkin.library.ListPopWindow;
+import com.hankkin.library.PopBean;
 import com.ody.library.util.util.PinyinUtils;
 import com.steelkiwi.cropiwa.CropActivityDemo;
+import com.wt.app.banner.ViewDemoActivity;
 import com.wt.app.selectdate.view.SelectAddressPopWindow;
 import com.wt.app.selectdate.view.SelectDatePopWindow;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener , ListPopWindow.OnPopItemClickListener,ListPopWindow.OnBottomTextviewClickListener {
 
     private static final String TAG = "MainActivity";
+    private ListPopWindow popWindow;
+    private LinearLayout container;
+    @Override
+    public void onBottomClick() {
+        popWindow.dismiss();
+    }
 
+    @Override
+    public void onPopItemClick(View view, int position) {
+        Toast.makeText(this, "click index:"+position, Toast.LENGTH_SHORT).show();
+        switch (position){
+
+            case 0:
+                Log.d("tag>>>>>","click index:"+position);
+
+                break;
+            case 1:
+                Log.d("tag>>>>>","click index:"+position);
+                break;
+            case 2:
+                Log.d("tag>>>>>","click index:"+position);
+                break;
+            case 3:
+                Log.d("tag>>>>>","click index:"+position);
+                break;
+            case 4:
+                Log.d("tag>>>>>","click index:"+position);
+                break;
+            default:
+                break;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        container = (LinearLayout) findViewById(R.id.container);
 
 
         Log.e(TAG, "onCreate: "+ PinyinUtils.getPinyinFirstLetters("中华人民") );
@@ -87,6 +127,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button5:
 
+                List<PopBean> pops = new ArrayList<>();
+                for (int i=0;i<5;i++){
+                    PopBean pop = new PopBean("item"+i,0);
+                    pops.add(pop);
+                }
+                popWindow = new ListPopWindow(MainActivity.this,this,this,container,pops,"cancel","title");
+                popWindow.showAtLocation(container, Gravity.CENTER| Gravity.BOTTOM,0,0);
+
 //                PhotoPicker.builder()
 //                        .setGridColumnCount(4)
 //                        .setPhotoCount(1)
@@ -119,6 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button6:
+
+                startActivity(new Intent(MainActivity.this,ViewDemoActivity.class));
 
 
 

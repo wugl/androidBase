@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wt.app.banner.ViewDemoActivity">
+
+    <com.wt.app.banner.view.CircleImageView
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/none"
+        app:border_color="@android:color/holo_red_light"
+        app:border_width="2dp" />
+
+    <com.wt.app.banner.view.RecyclerBanner
+        android:id="@+id/slide_banner"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:slidePlaceholderImage="@drawable/none">
+
+    </com.wt.app.banner.view.RecyclerBanner>
+</LinearLayout>
